@@ -6,10 +6,10 @@ const AVAILABLE_DAYS = new Set([3, 6, 10, 13, 17, 20, 24, 27]);
 
 export default function Schedule() {
   return (
-    <section className="bg-[var(--color-secondary-bg)] py-20 md:py-28">
+    <section className="bg-[var(--color-secondary-bg)] py-16 md:py-24 lg:py-32">
       <div className="container-labs md:px-10 grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-center lg:gap-20">
         <FadeUp className="order-2 lg:order-1">
-          <div className="mx-auto max-w-sm rounded-sm border border-[var(--color-border)] bg-white p-7 shadow-[0_4px_28px_-8px_rgba(44,44,44,0.08)] sm:p-8">
+          <div className="card-plain mx-auto max-w-sm p-7 sm:p-8">
             <div className="flex items-center justify-between">
               <span className="text-sm font-semibold text-[var(--color-deep-brown)]">Weekly Availability</span>
               <span className="h-2 w-2 rounded-full bg-[var(--color-gold)]" />
@@ -42,12 +42,12 @@ export default function Schedule() {
 
         <FadeUp delay={0.1} className="order-1 lg:order-2">
           <p className="section-label">FLEXIBLE SCHEDULE</p>
-          <h2 className="mt-5 max-w-md text-[1.75rem] leading-[1.35] font-semibold text-[var(--color-deep-brown)] sm:text-3xl md:text-[2.25rem]">
+          <h2 className="section-heading mt-5 max-w-md">
             바쁜 일정 때문에
             <br />
             공부를 포기하지 않도록.
           </h2>
-          <p className="mt-6 max-w-md text-[15px] leading-[1.9] text-[var(--color-muted)]">
+          <p className="body-copy mt-6">
             직장, 학교, 출장 등 수강생의 일정을 고려하여
             <br />
             가능한 시간대를 상담하고 수업 일정을 조율합니다.
@@ -56,7 +56,7 @@ export default function Schedule() {
             {TAGS.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-[var(--color-border)] px-4 py-2 text-xs font-medium tracking-wide text-[var(--color-text)]"
+                className="rounded-[var(--radius-sm)] border border-[var(--color-border)] px-4 py-2 text-xs font-medium tracking-wide text-[var(--color-text)]"
               >
                 {tag}
               </span>

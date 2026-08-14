@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -7,6 +8,20 @@ import MobileStickyCTA from "@/components/MobileStickyCTA";
 import LocationPicker from "@/components/LocationPicker";
 import { ConsultModalProvider } from "@/context/ConsultModalContext";
 import { locations } from "@/data/locations";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
 
 const SITE_URL = "https://labsacademy.co.kr";
 
@@ -64,7 +79,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   };
 
   return (
-    <html lang="ko" className="h-full antialiased">
+    <html lang="ko" className={`h-full antialiased ${inter.variable} ${cormorant.variable}`}>
       <body className="flex min-h-full flex-col bg-[var(--color-primary-bg)] font-sans text-[var(--color-text)]">
         <script
           type="application/ld+json"

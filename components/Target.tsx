@@ -11,10 +11,10 @@ const TARGETS = [
 
 export default function Target() {
   return (
-    <section className="bg-[var(--color-primary-bg)] py-20 md:py-28">
+    <section className="bg-[var(--color-primary-bg)] py-16 md:py-24 lg:py-32">
       <div className="container-labs md:px-10">
         <FadeUp>
-          <h2 className="max-w-lg text-[1.75rem] leading-[1.35] font-semibold text-[var(--color-deep-brown)] sm:text-3xl md:text-[2.25rem]">
+          <h2 className="section-heading max-w-lg">
             이런 분들에게
             <br />
             LABS를 추천합니다.

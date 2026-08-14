@@ -22,11 +22,11 @@ const VERIFIED_STAT: { label: string; value: string } | null = null;
 
 export default function Comparison() {
   return (
-    <section className="bg-[var(--color-secondary-bg)] py-20 md:py-28">
+    <section className="bg-[var(--color-secondary-bg)] py-16 md:py-24 lg:py-32">
       <div className="container-labs md:px-10">
         <FadeUp>
           <p className="section-label">1:1 EDUCATION</p>
-          <h2 className="mt-5 max-w-xl text-[1.75rem] leading-[1.35] font-semibold text-[var(--color-deep-brown)] sm:text-3xl md:text-[2.25rem]">
+          <h2 className="section-heading mt-5 max-w-xl">
             같은 60분이라도
             <br />
             수업의 밀도는 달라질 수 있습니다.
@@ -35,7 +35,7 @@ export default function Comparison() {
 
         <div className="mt-14 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-2 md:gap-8">
           <FadeUp>
-            <div className="h-full rounded-sm border border-[var(--color-border)] bg-transparent p-8">
+            <div className="h-full rounded-[var(--radius-md)] border border-[var(--color-border)] bg-transparent p-8">
               <p className="text-xs font-semibold tracking-[0.18em] text-[var(--color-muted)]">일반적인 그룹 수업</p>
               <ul className="mt-8 flex flex-col gap-5">
                 {ROWS.map((row) => (
@@ -48,7 +48,10 @@ export default function Comparison() {
           </FadeUp>
 
           <FadeUp delay={0.1}>
-            <div className="h-full border-l-2 border-[var(--color-gold)] bg-white p-8 shadow-[0_4px_28px_-8px_rgba(44,44,44,0.08)]">
+            <div
+              className="h-full rounded-[var(--radius-md)] border border-l-2 border-[var(--color-border)] border-l-[var(--color-gold)] bg-white p-8"
+              style={{ boxShadow: "0 1px 2px rgba(30,25,20,0.03), 0 10px 30px rgba(30,25,20,0.04)" }}
+            >
               <p className="text-xs font-semibold tracking-[0.18em] text-[var(--color-dark-gold)]">LABS 1:1</p>
               <ul className="mt-8 flex flex-col gap-5">
                 {ROWS.map((row) => (

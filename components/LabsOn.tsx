@@ -11,11 +11,11 @@ const FEATURES = [
 
 export default function LabsOn() {
   return (
-    <section id="labs-on" className="bg-white py-20 md:py-28">
+    <section id="labs-on" className="bg-white py-16 md:py-24 lg:py-32">
       <div className="container-labs md:px-10 grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-center lg:gap-20">
         <FadeUp>
           <p className="section-label">LABS ON</p>
-          <h2 className="mt-5 max-w-md text-[1.75rem] leading-[1.35] font-semibold text-[var(--color-deep-brown)] sm:text-3xl md:text-[2.25rem]">
+          <h2 className="section-heading mt-5 max-w-md">
             공간의 제약 없이,
             <br />
             LABS의 1:1 수업을 그대로.

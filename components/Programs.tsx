@@ -5,13 +5,13 @@ import { programs } from "@/data/programs";
 
 export default function Programs() {
   return (
-    <section id="programs" className="bg-[var(--color-primary-bg)] py-20 md:py-28">
+    <section id="programs" className="bg-[var(--color-primary-bg)] py-16 md:py-24 lg:py-32">
       <div className="container-labs md:px-10">
         <FadeUp>
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
               <p className="section-label">PROGRAMS</p>
-              <h2 className="mt-5 max-w-xl text-[1.75rem] leading-[1.35] font-semibold text-[var(--color-deep-brown)] sm:text-3xl md:text-[2.25rem]">
+              <h2 className="section-heading mt-5 max-w-xl">
                 목적이 다르면,
                 <br />
                 수업도 달라져야 합니다.
@@ -22,7 +22,7 @@ export default function Programs() {
 
         <div className="mt-14 md:mt-16">
           {programs.map((program, i) => (
-            <FadeUp key={program.slug} delay={i * 0.06}>
+            <FadeUp key={program.slug} delay={Math.min(i * 0.06, 0.24)}>
               <div className="grid grid-cols-1 gap-6 border-t border-[var(--color-border)] py-9 last:border-b md:grid-cols-12 md:items-center md:gap-8 md:py-10">
                 <div className="md:col-span-4">
                   <span className="font-serif text-2xl italic text-[var(--color-gold)]">{program.number}</span>
@@ -38,6 +38,10 @@ export default function Programs() {
                       </li>
                     ))}
                   </ul>
+                  <p className="mt-3 text-xs text-[var(--color-muted)]">
+                    <span className="font-medium text-[var(--color-dark-gold)]">Recommended for </span>
+                    {program.audience.slice(0, 2).join(" · ")}
+                  </p>
                 </div>
 
                 <div className="md:col-span-2 md:text-right">

@@ -2,7 +2,7 @@ import ConsultButton from "./ConsultButton";
 
 export default function ProgramConsultCTA({ program }: { program: string }) {
   return (
-    <div className="border border-[var(--color-border)] bg-white p-8 text-center sm:p-10">
+    <div className="card-plain p-8 text-center sm:p-10">
       <p className="text-lg font-medium leading-relaxed text-[var(--color-deep-brown)]">
         이 수업이 나에게 맞을지 궁금하신가요?
       </p>

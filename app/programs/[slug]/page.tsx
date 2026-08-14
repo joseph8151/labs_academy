@@ -32,7 +32,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
     return (
       <>
         <PageHeader eyebrow={`PROGRAM ${program.number}`} title={program.name} description={program.intro} />
-        <section className="py-16 md:py-20">
+        <section className="py-16 md:py-20 lg:py-24">
           <div className="container-labs md:px-10 grid grid-cols-1 gap-12 md:grid-cols-12">
             <div className="md:col-span-7">
               <p className="text-xs font-semibold tracking-[0.18em] text-[var(--color-dark-gold)]">CURRICULUM</p>
@@ -67,7 +67,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
     return (
       <>
         <PageHeader eyebrow={`TEST PREPARATION · ${test.language}`} title={`${test.code} 대비`} description={test.intro} />
-        <section className="py-16 md:py-20">
+        <section className="py-16 md:py-20 lg:py-24">
           <div className="container-labs md:px-10">
             <p className="text-sm text-[var(--color-muted)]">{test.fullName}</p>
 
@@ -86,7 +86,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                 <p className="text-xs font-semibold tracking-[0.18em] text-[var(--color-dark-gold)]">진단 영역</p>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {test.diagnosisAreas.map((d) => (
-                    <li key={d} className="rounded-full border border-[var(--color-border)] px-3.5 py-1.5 text-xs text-[var(--color-text)]">
+                    <li key={d} className="rounded-[var(--radius-xs)] border border-[var(--color-border)] px-3.5 py-1.5 text-xs text-[var(--color-text)]">
                       {d}
                     </li>
                   ))}

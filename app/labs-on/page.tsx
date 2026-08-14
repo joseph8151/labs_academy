@@ -17,7 +17,7 @@ export default function LabsOnPage() {
         description="실시간 화상으로 진행되는 LABS ON은 오프라인과 동일한 밀도의 1:1 수업을 어디서든 이어갈 수 있게 합니다."
       />
       <LabsOn />
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 lg:py-24">
         <div className="container-labs md:px-10">
           <ProgramConsultCTA program="labs-on" />
         </div>

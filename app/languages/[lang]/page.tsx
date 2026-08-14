@@ -28,7 +28,7 @@ export default async function LanguagePage({ params }: { params: Promise<{ lang:
     <>
       <PageHeader eyebrow={`LANGUAGE · ${language.code}`} title={`${language.nameKo} 1:1 수업`} description={language.tagline} />
 
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 lg:py-24">
         <div className="container-labs md:px-10 grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <p className="text-xs font-semibold tracking-[0.18em] text-[var(--color-dark-gold)]">COURSES</p>

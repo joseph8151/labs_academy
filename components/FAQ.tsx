@@ -10,13 +10,11 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-[var(--color-secondary-bg)] py-20 md:py-28">
+    <section className="bg-[var(--color-secondary-bg)] py-16 md:py-24 lg:py-32">
       <div className="container-labs md:px-10 mx-auto max-w-3xl">
         <FadeUp>
           <p className="section-label text-center">FAQ</p>
-          <h2 className="mt-5 text-center text-[1.75rem] font-semibold leading-[1.35] text-[var(--color-deep-brown)] sm:text-3xl">
-            자주 묻는 질문
-          </h2>
+          <h2 className="section-heading mt-5 text-center">자주 묻는 질문</h2>
         </FadeUp>
 
         <div className="mt-12 border-t border-[var(--color-border)] md:mt-14">

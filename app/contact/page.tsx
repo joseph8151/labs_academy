@@ -26,7 +26,7 @@ export default function ContactPage() {
         description="이름, 연락처 등 상세 정보는 카카오톡 상담 과정에서 지점 담당자가 직접 안내해 드립니다."
       />
 
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 lg:py-24">
         <div className="container-labs md:px-10">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             {STEPS.map((step) => (

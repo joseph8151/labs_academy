@@ -5,13 +5,21 @@ export type Instructor = {
   language: string;
   focusAreas: string[];
   bio: string;
+  /** Optional profile fields — render only when real, confirmed data is provided. */
+  nativeOrBilingual?: string;
+  teachingExperience?: string;
+  education?: string;
+  availablePrograms?: string[];
+  teachingStyle?: string;
 };
 
 /**
  * No real instructor roster has been provided yet.
  * Every entry here is a clearly-labeled development placeholder —
  * replace with verified instructor data (name, credentials, career) before launch.
- * Do not invent names, schools, or work history.
+ * Do not invent names, schools, career history, or numeric claims (pass rates,
+ * years of experience, rankings) — leave the optional fields above undefined
+ * until LABS confirms them.
  */
 export const instructors: Instructor[] = [
   {

@@ -21,7 +21,7 @@ export default function AboutPage() {
       <WhyLabs />
       <Comparison />
       <PersonalCurriculum />
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 lg:py-24">
         <div className="container-labs md:px-10">
           <ProgramConsultCTA program="about" />
         </div>

@@ -11,12 +11,18 @@ const FOOTER_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
+const POLICY_LINKS = [
+  { label: "수강 및 환불정책", href: "/refund-policy" },
+  { label: "이용약관", href: "/terms" },
+  { label: "개인정보처리방침", href: "/privacy" },
+];
+
 export default function Footer() {
   const primaryPhone = locations[0]?.phone;
 
   return (
     <footer className="border-t border-[var(--color-border)] bg-[var(--color-secondary-bg)]">
-      <div className="container-labs md:px-10 py-16">
+      <div className="container-labs md:px-10 py-16 lg:py-20">
         <div className="flex flex-col justify-between gap-12 md:flex-row">
           <div>
             <span className="font-serif text-2xl tracking-[0.08em] text-[var(--color-deep-brown)]">LABS</span>
@@ -42,15 +48,17 @@ export default function Footer() {
           <div className="space-y-1">
             {primaryPhone && <p>대표 전화 {primaryPhone}</p>}
             <p>운영시간 안내는 각 지점 페이지에서 확인하실 수 있습니다.</p>
-            <p>상호 LABS Academy · 대표자 정보 준비중 · 사업자등록번호 준비중</p>
+            <p>
+              상호 LABS Academy · 대표자 준비중 · 사업자등록번호 준비중 · 주소 준비중 · 이메일 준비중 · 통신판매업
+              신고번호 준비중
+            </p>
           </div>
-          <div className="flex gap-5">
-            <Link href="/terms" className="hover:text-[var(--color-dark-gold)]">
-              이용약관
-            </Link>
-            <Link href="/privacy" className="hover:text-[var(--color-dark-gold)]">
-              개인정보처리방침
-            </Link>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {POLICY_LINKS.map((item) => (
+              <Link key={item.label} href={item.href} className="hover:text-[var(--color-dark-gold)]">
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
 

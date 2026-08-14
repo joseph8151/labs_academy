@@ -13,11 +13,11 @@ export default function TestPrep() {
   const active = tests.find((t) => t.slug === activeSlug) ?? tests[0];
 
   return (
-    <section id="test-prep" className="bg-[var(--color-secondary-bg)] py-20 md:py-28">
+    <section id="test-prep" className="bg-[var(--color-secondary-bg)] py-16 md:py-24 lg:py-32">
       <div className="container-labs md:px-10">
         <FadeUp>
           <p className="section-label">TEST PREPARATION</p>
-          <h2 className="mt-5 max-w-xl text-[1.75rem] leading-[1.35] font-semibold text-[var(--color-deep-brown)] sm:text-3xl md:text-[2.25rem]">
+          <h2 className="section-heading mt-5 max-w-xl">
             시험도 결국
             <br />
             개인별 약점에서 점수가 갈립니다.
@@ -80,7 +80,7 @@ export default function TestPrep() {
                   {active.diagnosisAreas.map((d) => (
                     <li
                       key={d}
-                      className="rounded-full border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-text)]"
+                      className="rounded-[var(--radius-xs)] border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-text)]"
                     >
                       {d}
                     </li>

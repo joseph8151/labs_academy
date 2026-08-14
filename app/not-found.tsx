@@ -14,7 +14,7 @@ export default function NotFound() {
       <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row">
         <Link
           href="/"
-          className="inline-flex items-center justify-center rounded-full bg-[var(--color-deep-brown)] px-7 py-3.5 text-sm font-medium text-white transition hover:bg-[#2C2C2C]"
+          className="inline-flex h-12 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-deep-brown)] px-7 text-sm font-medium text-[var(--color-secondary-bg)] transition hover:bg-[var(--color-gold)] hover:text-[var(--color-deep-brown)]"
         >
           홈으로 돌아가기
         </Link>

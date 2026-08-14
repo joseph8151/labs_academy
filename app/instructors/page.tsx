@@ -17,7 +17,7 @@ export default function InstructorsPage() {
         description="수강 목적과 학습 스타일을 고려하여 적합한 강사를 연결합니다."
       />
 
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 lg:py-24">
         <div className="container-labs md:px-10">
           <div className="mb-10 border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-5 text-xs leading-relaxed text-[var(--color-muted)]">
             현재 등록된 강사 프로필은 실제 데이터가 확정되기 전까지 표시되는 개발용 SAMPLE 데이터입니다. 실명, 학력,

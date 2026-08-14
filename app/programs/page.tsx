@@ -20,7 +20,7 @@ export default function ProgramsPage() {
         description="LABS는 회화, 비즈니스, 시험대비, 단기 집중 과정까지 개인의 목표에 맞춘 1:1 프로그램을 설계합니다."
       />
 
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 lg:py-24">
         <div className="container-labs md:px-10">
           {programs.map((program) => (
             <div
@@ -56,7 +56,7 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      <section className="border-t border-[var(--color-border)] bg-[var(--color-secondary-bg)] py-16 md:py-20">
+      <section className="border-t border-[var(--color-border)] bg-[var(--color-secondary-bg)] py-16 md:py-20 lg:py-24">
         <div className="container-labs md:px-10">
           <p className="section-label">TEST PREPARATION</p>
           <h2 className="mt-4 text-xl font-semibold text-[var(--color-deep-brown)] sm:text-2xl">시험별 상세 안내</h2>
@@ -74,7 +74,7 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 lg:py-24">
         <div className="container-labs md:px-10">
           <ProgramConsultCTA program="programs" />
         </div>
