@@ -25,7 +25,7 @@ export const locations: Location[] = [
   {
     id: "suwon",
     name: "LABS 수원",
-    address: "경기도 수원시 영통구 매탄동 371-1 3층",
+    address: "경기도 수원시 영통구 신원로 299, 3층 (매탄동)",
     phone: "031-214-8131",
     kakaoId: "수원랩스어학원",
     kakaoChannelUrl: "https://pf.kakao.com/_NlNdX/chat",
