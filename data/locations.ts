@@ -27,7 +27,7 @@ export const locations: Location[] = [
     address: "경기도 수원시 영통구 매탄동 371-1 3층",
     phone: "031-214-8131",
     kakaoId: "labssw",
-    kakaoChannelUrl: "",
+    kakaoChannelUrl: "https://pf.kakao.com/_NlNdX/chat",
     hours: "운영시간 안내 준비중",
     mapUrl: "https://map.kakao.com/?q=" + encodeURIComponent("경기도 수원시 영통구 매탄동 371-1"),
     programs: ["영어회화", "비즈니스 영어", "시험대비", "중국어", "일본어"],
