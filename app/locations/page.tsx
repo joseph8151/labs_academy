@@ -40,7 +40,7 @@ export default function LocationsPage() {
                     </li>
                     <li className="flex items-start gap-2.5">
                       <Phone size={16} className="mt-0.5 shrink-0 text-[var(--color-muted)]" />
-                      {loc.phone}
+                      {loc.phone ?? "전화번호 준비중"}
                     </li>
                     <li className="flex items-start gap-2.5">
                       <Clock size={16} className="mt-0.5 shrink-0 text-[var(--color-muted)]" />

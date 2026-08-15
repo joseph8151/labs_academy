@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { locations } from "@/data/locations";
+import { company } from "@/data/company";
 
 const FOOTER_LINKS = [
   { label: "About", href: "/about" },
@@ -49,8 +50,11 @@ export default function Footer() {
             {primaryPhone && <p>대표 전화 {primaryPhone}</p>}
             <p>운영시간 안내는 각 지점 페이지에서 확인하실 수 있습니다.</p>
             <p>
-              상호 LABS Academy · 대표자 준비중 · 사업자등록번호 준비중 · 주소 준비중 · 이메일 준비중 · 통신판매업
-              신고번호 준비중
+              상호 {company.legalName} · 대표자 {company.ceo} · 사업자등록번호 {company.businessRegistrationNumber} ·
+              주소 {company.address}
+            </p>
+            <p>
+              이메일 {company.email ?? "준비중"} · 통신판매업 신고번호 {company.mailOrderBusinessNumber ?? "준비중"}
             </p>
           </div>
           <div className="flex flex-wrap gap-x-5 gap-y-2">

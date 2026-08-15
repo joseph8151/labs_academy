@@ -8,6 +8,7 @@ import MobileStickyCTA from "@/components/MobileStickyCTA";
 import LocationPicker from "@/components/LocationPicker";
 import { ConsultModalProvider } from "@/context/ConsultModalContext";
 import { locations } from "@/data/locations";
+import { company } from "@/data/company";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     "@type": "EducationalOrganization",
     name: "LABS Academy",
     alternateName: "LABS",
+    legalName: company.legalName,
     description: "성인 1:1 맞춤 어학 교육 전문 기관",
     url: SITE_URL,
     ...(primary && {

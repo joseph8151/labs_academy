@@ -47,7 +47,7 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
                 <Phone size={18} className="mt-0.5 shrink-0 text-[var(--color-dark-gold)]" />
                 <div>
                   <dt className="text-xs font-semibold text-[var(--color-muted)]">전화번호</dt>
-                  <dd className="mt-0.5 text-[15px] text-[var(--color-text)]">{location.phone}</dd>
+                  <dd className="mt-0.5 text-[15px] text-[var(--color-text)]">{location.phone ?? "전화번호 준비중"}</dd>
                 </div>
               </div>
               <div className="flex items-start gap-3">
