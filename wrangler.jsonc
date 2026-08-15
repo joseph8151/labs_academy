@@ -1,0 +1,11 @@
+{
+  // Static-only deployment: the Next.js app builds to `out/` (see next.config.ts
+  // `output: "export"`), and Cloudflare serves those files directly as a
+  // Worker with static assets — no server-side Worker script is needed.
+  "name": "labs-academy",
+  "compatibility_date": "2026-08-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
