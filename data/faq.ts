@@ -1,6 +1,8 @@
 export type FaqItem = {
   question: string;
   answer: string;
+  /** Shown in the curated "등록 전에 많이 물어보시는 것" set right before the final CTA. */
+  preSignup?: boolean;
 };
 
 export const faq: FaqItem[] = [
@@ -18,11 +20,13 @@ export const faq: FaqItem[] = [
     question: "초보자도 수업이 가능한가요?",
     answer:
       "가능합니다. 현재 수준을 먼저 진단한 뒤, 기초 단계부터 목표에 맞춰 학습 속도와 난이도를 조정해 진행합니다.",
+    preSignup: true,
   },
   {
     question: "어떤 선생님에게 배우게 되나요?",
     answer:
       "수강 목적, 필요한 언어 영역, 학습 스타일을 고려하여 가장 적합한 강사를 연결해 드립니다. 강사 프로필은 상담 시 함께 안내해 드립니다.",
+    preSignup: true,
   },
   {
     question: "강사는 어떻게 배정되나요?",
@@ -43,6 +47,7 @@ export const faq: FaqItem[] = [
     question: "직장인도 저녁 수업이 가능한가요?",
     answer:
       "네, 직장인 수강생의 일정을 고려하여 저녁 시간대를 포함한 수업 시간을 상담을 통해 조율합니다.",
+    preSignup: true,
   },
   {
     question: "시험 준비도 1:1로 진행되나요?",
@@ -53,6 +58,12 @@ export const faq: FaqItem[] = [
     question: "온라인과 오프라인 중 선택할 수 있나요?",
     answer:
       "네, LABS ON을 통해 실시간 화상으로도 오프라인과 동일한 방식의 1:1 수업을 진행할 수 있습니다. 상담 시 원하시는 방식을 알려주시면 됩니다.",
+    preSignup: true,
+  },
+  {
+    question: "수강료는 언제 알 수 있나요?",
+    answer: "수업 형태와 일정을 확인한 뒤, 결제 전에 정확한 수강료를 안내해 드립니다.",
+    preSignup: true,
   },
   {
     question: "결석 또는 일정 변경은 어떻게 처리되나요?",
@@ -78,5 +89,6 @@ export const faq: FaqItem[] = [
     question: "상담 후 바로 등록해야 하나요?",
     answer:
       "아닙니다. 상담과 레벨 진단은 등록 여부와 무관하게 목표에 맞는 학습 방향을 안내해 드리는 과정입니다.",
+    preSignup: true,
   },
 ];

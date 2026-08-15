@@ -32,10 +32,10 @@ export default function Hero() {
               1:1 상담 신청
             </ConsultButton>
             <Link
-              href="/programs"
+              href="/#goal-finder"
               className="inline-flex h-[52px] items-center justify-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-deep-brown)] px-8 text-[15px] font-medium text-[var(--color-deep-brown)] transition-all duration-200 ease-out hover:-translate-y-px hover:bg-[var(--color-deep-brown)] hover:text-white"
             >
-              프로그램 살펴보기
+              내게 맞는 수업 찾기
             </Link>
           </div>
 

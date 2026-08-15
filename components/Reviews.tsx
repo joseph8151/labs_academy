@@ -13,6 +13,13 @@ const FILTERS: { label: string; value: ReviewCategory | "all" }[] = [
   { label: "Online", value: "online" },
 ];
 
+const MEASURES = [
+  { title: "Goal Progress", desc: "처음 설정한 학습 목표를 기준으로 확인합니다." },
+  { title: "Instructor Feedback", desc: "수업 과정에서 발견된 개선점을 지속적으로 기록합니다." },
+  { title: "Curriculum Adjustment", desc: "진행 상황에 따라 수업 방향을 조정합니다." },
+  { title: "Learning Continuity", desc: "다음 수업에서 무엇을 이어갈지 명확하게 관리합니다." },
+];
+
 export default function Reviews() {
   const [filter, setFilter] = useState<ReviewCategory | "all">("all");
   const verified = studentStories.filter((s) => s.verified);
@@ -54,12 +61,21 @@ export default function Reviews() {
 
         {verified.length === 0 ? (
           <FadeUp delay={0.1}>
-            <div className="card-plain mt-12 p-10 text-center md:mt-14">
-              <p className="text-sm leading-relaxed text-[var(--color-muted)]">
-                아직 공개된 수강 후기가 없습니다.
-                <br />
-                LABS가 실제 수강 여부를 확인한 후기가 등록되면 이곳에서 확인하실 수 있습니다.
+            <div className="mt-12 md:mt-14">
+              <p className="text-xs font-semibold tracking-[0.18em] text-[var(--color-dark-gold)]">
+                WHAT LABS MEASURES
               </p>
+              <p className="mt-3 max-w-md text-sm leading-relaxed text-[var(--color-muted)]">
+                수업 만족도를 말로만 이야기하지 않습니다. 검증된 수강 후기는 준비되는 대로 이 자리에 공개됩니다.
+              </p>
+              <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {MEASURES.map((m) => (
+                  <div key={m.title} className="border-t border-[var(--color-border)] pt-5">
+                    <h3 className="text-[15px] font-semibold text-[var(--color-deep-brown)]">{m.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">{m.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </FadeUp>
         ) : (

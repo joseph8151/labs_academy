@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import ConsultButton from "./ConsultButton";
 import FadeUp from "./FadeUp";
 import InstructorStandard from "./InstructorStandard";
 import { instructors } from "@/data/instructors";
+
+const MATCH_POINTS = ["전문 분야", "수업 가능 시간", "주요 경력", "수업 스타일", "담당 가능 프로그램"];
 
 export default function Instructors() {
   return (
@@ -49,6 +52,33 @@ export default function Instructors() {
         <div className="mt-16 md:mt-20">
           <InstructorStandard />
         </div>
+
+        <FadeUp delay={0.1}>
+          <div className="card-plain mt-14 flex flex-col gap-8 p-8 sm:p-10 md:mt-16 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-md">
+              <h3 className="text-xl font-semibold text-[var(--color-deep-brown)] sm:text-2xl">
+                수업 전에 담당 강사를 확인하세요.
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--color-muted)]">
+                1:1 수업은 커리큘럼만큼 누구와 배우느냐가 중요합니다. 상담 후 목표와 일정을 확인하고 적합한 강사
+                프로필을 안내해 드립니다.
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {MATCH_POINTS.map((p) => (
+                  <li
+                    key={p}
+                    className="rounded-[var(--radius-xs)] border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-text)]"
+                  >
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <ConsultButton icon program="instructor-match" className="shrink-0">
+              내게 맞는 강사 추천받기
+            </ConsultButton>
+          </div>
+        </FadeUp>
       </div>
     </section>
   );
