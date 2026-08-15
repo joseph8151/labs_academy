@@ -1,11 +1,16 @@
 import Link from "next/link";
-import ConsultButton from "./ConsultButton";
 import EditorialPanel from "./EditorialPanel";
 
 export default function Hero() {
   return (
-    <section className="bg-[var(--color-primary-bg)]">
-      <div className="container-labs md:px-10 grid grid-cols-1 items-center gap-12 pt-16 pb-16 md:pt-20 md:pb-20 lg:grid-cols-[3fr_2fr] lg:gap-16 lg:pt-24 lg:pb-24">
+    <section className="relative overflow-hidden bg-[var(--color-primary-bg)]">
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -left-4 top-1/2 hidden -translate-y-1/2 select-none font-serif text-[26vw] font-medium italic leading-none text-[var(--color-gold)] opacity-[0.06] lg:block"
+      >
+        LABS
+      </span>
+      <div className="container-labs md:px-10 relative grid grid-cols-1 items-center gap-12 pt-16 pb-16 md:pt-20 md:pb-20 lg:grid-cols-[6fr_5fr] lg:gap-14 lg:pt-24 lg:pb-24">
         <div>
           <p className="section-label">PRIVATE 1:1 LANGUAGE EDUCATION</p>
 
@@ -20,31 +25,47 @@ export default function Hero() {
           </p>
 
           <p className="body-copy mt-6">
-            목표도, 실력도, 가능한 시간도 모두 다르니까.
+            회화, 비즈니스, 면접, 시험 준비까지.
             <br />
-            LABS는 상담과 레벨 진단을 바탕으로
-            <br />
-            수강생 한 사람을 위한 커리큘럼을 설계합니다.
+            현재 수준과 목표를 먼저 확인하고
+            <br />한 사람을 위한 1:1 수업을 설계합니다.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <ConsultButton size="lg" program={undefined}>
-              1:1 상담 신청
-            </ConsultButton>
             <Link
               href="/#goal-finder"
+              className="inline-flex h-[52px] items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-deep-brown)] px-8 text-[15px] font-medium text-[var(--color-secondary-bg)] transition-all duration-200 ease-out hover:-translate-y-px hover:bg-[var(--color-gold)] hover:text-[var(--color-deep-brown)]"
+            >
+              내게 맞는 1:1 수업 찾기
+            </Link>
+            <Link
+              href="/programs"
               className="inline-flex h-[52px] items-center justify-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-deep-brown)] px-8 text-[15px] font-medium text-[var(--color-deep-brown)] transition-all duration-200 ease-out hover:-translate-y-px hover:bg-[var(--color-deep-brown)] hover:text-white"
             >
-              내게 맞는 수업 찾기
+              프로그램 살펴보기
             </Link>
           </div>
 
-          <p className="mt-7 text-xs tracking-[0.04em] text-[var(--color-muted)]">
+          <p className="mt-4 text-xs leading-relaxed text-[var(--color-muted)]">
+            상담 후 바로 등록하실 필요는 없습니다. 먼저 어떤 수업이 필요한지 확인해보세요.
+          </p>
+
+          <p className="mt-6 text-xs tracking-[0.04em] text-[var(--color-muted)]">
             영어 · 중국어 · 일본어 · 스페인어 · 시험대비 · 비즈니스
           </p>
         </div>
 
-        <EditorialPanel eyebrow="One to One" caption="PRIVATE LESSON SPACE" className="mx-auto max-w-sm lg:mx-0 lg:max-w-none" />
+        <div className="relative mx-auto max-w-sm lg:mx-0 lg:max-w-none">
+          <EditorialPanel eyebrow="One to One" caption="PRIVATE LESSON SPACE" />
+          <div className="shadow-elevated absolute -bottom-6 -left-6 hidden w-48 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-5 sm:block">
+            <p className="text-[10px] font-semibold tracking-[0.16em] text-[var(--color-dark-gold)]">PRIVATE 1:1</p>
+            <p className="mt-2 text-xs leading-relaxed text-[var(--color-deep-brown)]">
+              Personal Curriculum
+              <br />
+              Flexible Scheduling
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

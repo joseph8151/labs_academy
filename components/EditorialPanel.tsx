@@ -17,6 +17,7 @@ export default function EditorialPanel({ eyebrow, caption, tone = "ivory", class
 
   return (
     <div className={cn("relative aspect-[4/5] w-full", className)}>
+      <div className="soft-light" />
       <div
         className={cn(
           "absolute inset-0 -translate-x-3 -translate-y-3 border",
@@ -25,7 +26,7 @@ export default function EditorialPanel({ eyebrow, caption, tone = "ivory", class
       />
       <div
         className={cn(
-          "relative h-full w-full overflow-hidden border",
+          "shadow-floating relative h-full w-full overflow-hidden border",
           dark
             ? "border-[var(--color-champagne)]/25 bg-[#2f281e]"
             : "border-[var(--color-border)] bg-[var(--color-secondary-bg)]"

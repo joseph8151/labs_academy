@@ -63,6 +63,19 @@ export default function BeforeAfter() {
             </div>
           </FadeUp>
         </div>
+
+        <FadeUp delay={0.22}>
+          <div className="mt-16 border-t border-[var(--color-border)] pt-12 text-center md:mt-20">
+            <p className="text-2xl font-semibold tracking-[-0.01em] text-[var(--color-deep-brown)] sm:text-3xl md:text-4xl">
+              ONE STUDENT. ONE INSTRUCTOR.
+              <br />
+              ONE GOAL.
+            </p>
+            <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-[var(--color-muted)]">
+              같은 한 시간이더라도 수업에 참여하는 방식은 달라질 수 있습니다.
+            </p>
+          </div>
+        </FadeUp>
       </div>
     </section>
   );

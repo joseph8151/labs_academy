@@ -10,16 +10,27 @@ const TIMELINE = [
 
 export default function SampleLessonPlan() {
   return (
-    <section className="bg-white py-16 md:py-24 lg:py-32">
-      <div className="container-labs md:px-10">
+    <section className="relative overflow-hidden bg-white py-16 md:py-24 lg:py-32">
+      <span
+        aria-hidden
+        className="bg-numeral pointer-events-none -right-6 top-4 hidden text-[16rem] md:block lg:text-[22rem]"
+      >
+        60
+      </span>
+      <div className="container-labs md:px-10 relative">
         <FadeUp>
           <p className="section-label">SAMPLE LESSON PLAN</p>
-          <h2 className="section-heading mt-5 max-w-lg">1:1 수업은 이런 방식으로 진행될 수 있습니다.</h2>
+          <h2 className="mt-5 max-w-lg text-[1.75rem] font-semibold leading-[1.15] tracking-[-0.01em] text-[var(--color-deep-brown)] sm:text-[2.5rem]">
+            60 MINUTES.
+            <br />
+            FULLY YOURS.
+          </h2>
+          <p className="body-copy mt-4">1:1 수업은 이런 방식으로 진행될 수 있습니다.</p>
         </FadeUp>
 
         <div className="mt-12 grid grid-cols-1 gap-10 md:mt-14 lg:grid-cols-12 lg:gap-8">
           <FadeUp delay={0.06} className="lg:col-span-5">
-            <div className="card-plain h-full p-8 sm:p-9">
+            <div className="card-plain shadow-elevated h-full p-8 sm:p-9">
               <p className="text-xs font-semibold tracking-[0.18em] text-[var(--color-dark-gold)]">
                 BUSINESS ENGLISH
               </p>

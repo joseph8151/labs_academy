@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import ConsultButton from "./ConsultButton";
 import FadeUp from "./FadeUp";
 import InstructorStandard from "./InstructorStandard";
 import { instructors } from "@/data/instructors";
 
-const MATCH_POINTS = ["전문 분야", "수업 가능 시간", "주요 경력", "수업 스타일", "담당 가능 프로그램"];
+const MATCH_INPUTS = ["Goal", "Level", "Schedule", "Specialty"];
 
 export default function Instructors() {
   return (
@@ -32,9 +32,13 @@ export default function Instructors() {
           </div>
         </FadeUp>
 
-        <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden border border-[var(--color-border)] bg-[var(--color-border)] sm:grid-cols-2 md:mt-16 lg:grid-cols-4">
+        <div className="-mx-6 mt-14 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-2 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-px sm:overflow-visible sm:border sm:border-[var(--color-border)] sm:bg-[var(--color-border)] sm:px-0 sm:pb-0 md:mt-16 lg:grid-cols-4">
           {instructors.map((instructor, i) => (
-            <FadeUp key={instructor.id} delay={Math.min(i * 0.06, 0.24)} className="bg-[var(--color-primary-bg)] p-7">
+            <FadeUp
+              key={instructor.id}
+              delay={Math.min(i * 0.06, 0.24)}
+              className="w-[78vw] shrink-0 snap-start bg-[var(--color-primary-bg)] p-7 sm:w-auto sm:shrink"
+            >
               <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[var(--color-gold)]/50 font-serif text-lg italic text-[var(--color-gold)]">
                 {instructor.language.slice(0, 2).toUpperCase()}
               </div>
@@ -54,29 +58,39 @@ export default function Instructors() {
         </div>
 
         <FadeUp delay={0.1}>
-          <div className="card-plain mt-14 flex flex-col gap-8 p-8 sm:p-10 md:mt-16 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-md">
-              <h3 className="text-xl font-semibold text-[var(--color-deep-brown)] sm:text-2xl">
-                수업 전에 담당 강사를 확인하세요.
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--color-muted)]">
-                1:1 수업은 커리큘럼만큼 누구와 배우느냐가 중요합니다. 상담 후 목표와 일정을 확인하고 적합한 강사
-                프로필을 안내해 드립니다.
-              </p>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {MATCH_POINTS.map((p) => (
-                  <li
+          <div className="mt-14 border-t border-[var(--color-border)] pt-12 md:mt-16">
+            <p className="text-xs font-semibold tracking-[0.2em] text-[var(--color-dark-gold)]">NOT JUST A TEACHER</p>
+            <h3 className="mt-3 text-xl font-semibold text-[var(--color-deep-brown)] sm:text-2xl">
+              강사 배정이 아니라, 맞는 강사를 연결합니다.
+            </h3>
+
+            <div className="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-4">
+              <div className="flex flex-wrap gap-2">
+                {MATCH_INPUTS.map((p) => (
+                  <span
                     key={p}
-                    className="rounded-[var(--radius-xs)] border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-text)]"
+                    className="rounded-[var(--radius-xs)] border border-[var(--color-border)] bg-white px-3 py-1.5 text-xs font-medium text-[var(--color-text)]"
                   >
                     {p}
-                  </li>
+                  </span>
                 ))}
-              </ul>
+              </div>
+              <ArrowRight size={16} className="hidden shrink-0 -rotate-90 text-[var(--color-gold)] sm:block sm:rotate-0" />
+              <span className="rounded-[var(--radius-sm)] bg-[var(--color-deep-brown)] px-4 py-2 text-xs font-semibold tracking-[0.1em] text-[var(--color-secondary-bg)]">
+                LABS MATCHING
+              </span>
+              <ArrowRight size={16} className="hidden shrink-0 -rotate-90 text-[var(--color-gold)] sm:block sm:rotate-0" />
+              <span className="text-sm font-medium text-[var(--color-deep-brown)]">Your Instructor</span>
             </div>
-            <ConsultButton icon program="instructor-match" className="shrink-0">
-              내게 맞는 강사 추천받기
-            </ConsultButton>
+
+            <div className="mt-10 flex flex-col items-start gap-6 border-t border-[var(--color-border)] pt-8 sm:flex-row sm:items-center sm:justify-between">
+              <p className="max-w-md text-sm leading-relaxed text-[var(--color-muted)]">
+                상담 후 목표와 일정을 확인하고, 그에 맞는 강사 프로필을 안내해 드립니다.
+              </p>
+              <ConsultButton icon program="instructor-match" className="shrink-0">
+                내게 맞는 강사 추천받기
+              </ConsultButton>
+            </div>
           </div>
         </FadeUp>
       </div>
