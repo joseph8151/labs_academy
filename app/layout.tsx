@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Cormorant_Garamond } from "next/font/google";
+import { Manrope, Fraunces } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -10,17 +10,17 @@ import { ConsultModalProvider } from "@/context/ConsultModalContext";
 import { locations } from "@/data/locations";
 import { company } from "@/data/company";
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-manrope",
   display: "swap",
 });
 
-const cormorant = Cormorant_Garamond({
+const fraunces = Fraunces({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -81,7 +81,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   };
 
   return (
-    <html lang="ko" className={`h-full antialiased ${inter.variable} ${cormorant.variable}`}>
+    <html lang="ko" className={`h-full antialiased ${manrope.variable} ${fraunces.variable}`}>
       <body className="flex min-h-full flex-col bg-[var(--color-primary-bg)] font-sans text-[var(--color-text)]">
         <script
           type="application/ld+json"

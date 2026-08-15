@@ -14,13 +14,13 @@ export default function Hero() {
         <div>
           <p className="section-label">PRIVATE 1:1 LANGUAGE EDUCATION</p>
 
-          <h1 className="mt-6 text-[2.375rem] leading-[1.12] font-semibold tracking-[-0.02em] text-[var(--color-deep-brown)] sm:text-[3.25rem] lg:text-[4.25rem]">
+          <h1 className="mt-6 text-[1.875rem] leading-[1.2] font-semibold tracking-[-0.02em] text-[var(--color-deep-brown)] sm:text-[2.5rem] lg:text-[3.25rem]">
             당신에게 맞춰지는
             <br />
             1:1 어학수업
           </h1>
 
-          <p className="mt-4 font-serif text-lg font-medium italic text-[var(--color-dark-gold)] sm:text-xl">
+          <p className="mt-4 font-serif text-base font-medium italic text-[var(--color-dark-gold)] sm:text-lg">
             Private Language Education, Designed Around You.
           </p>
 
