@@ -9,6 +9,10 @@ export type Location = {
   hours: string;
   mapUrl: string;
   programs: string[];
+  /** Optional — add once the branch provides written directions from the nearest station/landmark. */
+  directions?: string;
+  /** Optional — add once real interior photos are confirmed for this branch. */
+  gallery?: { label: string }[];
 };
 
 /**
