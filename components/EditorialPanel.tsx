@@ -1,18 +1,20 @@
 import { cn } from "@/lib/utils";
+import PanelIllustration, { type IllustrationVariant } from "./panelIllustrations";
 
 type EditorialPanelProps = {
   eyebrow: string;
   caption: string;
   tone?: "ivory" | "dark";
+  illustration?: IllustrationVariant;
   className?: string;
 };
 
 /**
- * Abstract editorial placeholder used in place of lifestyle photography
- * until LABS supplies its own brand imagery — keeps the layout premium
- * and photo-shaped without fabricating a stock photo.
+ * Editorial placeholder used in place of lifestyle photography until LABS
+ * supplies its own brand imagery — a line-art illustration (never a fake
+ * stock photo) keeps the layout premium and photo-shaped in the meantime.
  */
-export default function EditorialPanel({ eyebrow, caption, tone = "ivory", className }: EditorialPanelProps) {
+export default function EditorialPanel({ eyebrow, caption, tone = "ivory", illustration, className }: EditorialPanelProps) {
   const dark = tone === "dark";
 
   return (
@@ -33,7 +35,7 @@ export default function EditorialPanel({ eyebrow, caption, tone = "ivory", class
         )}
       >
         <div
-          className="absolute inset-0 opacity-[0.35]"
+          className="absolute inset-0 opacity-[0.15]"
           style={{
             backgroundImage:
               "repeating-linear-gradient(135deg, currentColor 0, currentColor 1px, transparent 1px, transparent 32px)",
@@ -51,6 +53,16 @@ export default function EditorialPanel({ eyebrow, caption, tone = "ivory", class
         )}
 
         <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
+          {illustration && (
+            <span
+              className={cn(
+                "mb-6 h-16 w-16 md:h-20 md:w-20",
+                dark ? "text-[var(--color-champagne)]" : "text-[var(--color-gold)]"
+              )}
+            >
+              <PanelIllustration variant={illustration} />
+            </span>
+          )}
           <span
             className={cn(
               "font-serif text-3xl italic tracking-wide md:text-4xl",

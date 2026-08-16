@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MapPin, Phone, Clock, ExternalLink } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
-import EditorialPanel from "@/components/EditorialPanel";
+import LocationMap from "@/components/LocationMap";
 import { locations, getLocationById } from "@/data/locations";
 import { getConsultAction } from "@/lib/kakao";
 
@@ -111,7 +111,7 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
           </div>
 
           <div className="lg:col-span-5">
-            <EditorialPanel eyebrow={location.name} caption="PHOTO PLACEHOLDER" className="aspect-[4/5]" />
+            <LocationMap name={location.name} address={location.address} className="aspect-[4/5] w-full" />
           </div>
         </div>
 

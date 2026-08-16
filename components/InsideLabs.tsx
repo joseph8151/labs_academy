@@ -1,7 +1,13 @@
 import EditorialPanel from "./EditorialPanel";
 import FadeUp from "./FadeUp";
+import type { IllustrationVariant } from "./panelIllustrations";
 
-const SPACES = ["Reception", "Private Classroom", "Consulting Area", "Study Space"];
+const SPACES: { name: string; illustration: IllustrationVariant }[] = [
+  { name: "Reception", illustration: "reception" },
+  { name: "Private Classroom", illustration: "classroom" },
+  { name: "Consulting Area", illustration: "consulting" },
+  { name: "Study Space", illustration: "study" },
+];
 
 export default function InsideLabs() {
   return (
@@ -15,8 +21,13 @@ export default function InsideLabs() {
 
         <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-14 lg:grid-cols-4">
           {SPACES.map((space, i) => (
-            <FadeUp key={space} delay={Math.min(i * 0.06, 0.24)}>
-              <EditorialPanel eyebrow={space} caption="PHOTO PLACEHOLDER" className="aspect-[3/4]" />
+            <FadeUp key={space.name} delay={Math.min(i * 0.06, 0.24)}>
+              <EditorialPanel
+                eyebrow={space.name}
+                caption="사진 촬영 준비중"
+                illustration={space.illustration}
+                className="aspect-[3/4]"
+              />
             </FadeUp>
           ))}
         </div>

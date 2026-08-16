@@ -70,7 +70,7 @@ export default function Hero() {
         </div>
 
         <div className="relative mx-auto max-w-sm lg:mx-0 lg:max-w-none">
-          <EditorialPanel eyebrow="One to One" caption="PRIVATE LESSON SPACE" />
+          <EditorialPanel eyebrow="One to One" caption="PRIVATE LESSON SPACE" illustration="one-to-one" />
           <div className="shadow-elevated absolute -bottom-6 -left-6 hidden w-48 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-5 sm:block">
             <p className="text-[10px] font-semibold tracking-[0.16em] text-[var(--color-dark-gold)]">
               20 · 40 · 60 · 80H
