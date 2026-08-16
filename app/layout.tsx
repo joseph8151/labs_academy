@@ -24,7 +24,7 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
-const SITE_URL = "https://labsacademy.co.kr";
+const SITE_URL = "https://labsacademies.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
