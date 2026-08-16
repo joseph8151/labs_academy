@@ -25,6 +25,8 @@ Licensed under the SIL Open Font License 1.1 (https://github.com/sun-typeface/SU
   --color-deep-brown: #3a3226;
   --color-muted: #777168;
   --color-border: #e7ded0;
+  --color-navy: #19273d;
+  --color-charcoal: #252525;
 
   --font-sans: "SUIT Variable", SUIT, var(--font-manrope), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-serif: var(--font-fraunces), "Fraunces", ui-serif, Georgia, serif;

@@ -6,6 +6,8 @@ import DeadlinePlanner from "@/components/DeadlinePlanner";
 import AboutLabs from "@/components/AboutLabs";
 import WhyLabs from "@/components/WhyLabs";
 import Comparison from "@/components/Comparison";
+import CompetitiveEdge from "@/components/CompetitiveEdge";
+import IntensiveFlow from "@/components/IntensiveFlow";
 import GoalFinder from "@/components/GoalFinder";
 import Programs from "@/components/Programs";
 import Languages from "@/components/Languages";
@@ -39,6 +41,8 @@ export default function Home() {
       <AboutLabs />
       <WhyLabs />
       <Comparison />
+      <CompetitiveEdge />
+      <IntensiveFlow />
       <GoalFinder />
       <Programs />
       <Languages />

@@ -43,10 +43,11 @@ export default function PricingPlans() {
                 <span className="font-serif text-3xl italic text-[var(--color-deep-brown)]">{plan.hours}</span>
                 <h3 className="mt-1 text-lg font-semibold tracking-[-0.01em] text-[var(--color-deep-brown)]">
                   {plan.name}
+                  <span className="ml-2 text-xs font-semibold tracking-[0.14em] text-[var(--color-dark-gold)]">
+                    {plan.tagline}
+                  </span>
                 </h3>
-                <p className="mt-1 text-xs font-semibold tracking-[0.14em] text-[var(--color-dark-gold)]">
-                  {plan.tagline}
-                </p>
+                <p className="mt-1.5 text-sm leading-snug text-[var(--color-muted)]">{plan.punchline}</p>
 
                 <ul className="mt-6 flex flex-1 flex-col gap-3">
                   {plan.goals.map((g) => (

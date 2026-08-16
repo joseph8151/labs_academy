@@ -1,10 +1,10 @@
 import FadeUp from "./FadeUp";
 
 const BUCKETS = [
-  { weeks: "2 WEEKS", label: "Interview Sprint", hours: "20H" },
-  { weeks: "4 WEEKS", label: "Business Intensive", hours: "40H" },
-  { weeks: "6–8 WEEKS", label: "Speaking Transformation", hours: "60H" },
-  { weeks: "8–12 WEEKS", label: "Complete Intensive", hours: "80H" },
+  { weeks: "2 WEEKS", label: "Interview Sprint", hours: "20H", example: "예: 면접까지 14일" },
+  { weeks: "4 WEEKS", label: "Business Intensive", hours: "40H", example: "예: 출장까지 3주" },
+  { weeks: "6–8 WEEKS", label: "Speaking Transformation", hours: "60H", example: "예: 방학 6주" },
+  { weeks: "8–12 WEEKS", label: "Complete Intensive", hours: "80H", example: "예: 유학 출국까지 8주" },
 ];
 
 export default function DeadlinePlanner() {
@@ -32,6 +32,9 @@ export default function DeadlinePlanner() {
                 <p className="mt-3 text-sm font-medium text-[var(--color-deep-brown)]">{b.label}</p>
                 <p className="mt-4 text-xs font-semibold tracking-[0.14em] text-[var(--color-dark-gold)]">
                   {b.hours} INTENSIVE
+                </p>
+                <p className="mt-3 border-t border-[var(--color-border)] pt-3 text-xs text-[var(--color-muted)]">
+                  {b.example}
                 </p>
               </div>
             </FadeUp>

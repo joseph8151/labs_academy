@@ -23,7 +23,7 @@ export default function MobileStickyCTA() {
         href="/#goal-finder"
         className="flex flex-1 items-center justify-center gap-1.5 rounded-[var(--radius-sm)] bg-[var(--color-deep-brown)] px-3 py-3 text-[13px] font-semibold text-[var(--color-secondary-bg)] transition hover:bg-[var(--color-gold)] hover:text-[var(--color-deep-brown)]"
       >
-        내 1:1 수업 찾기
+        내 Intensive 상담받기
         <ArrowRight size={15} />
       </Link>
     </div>
