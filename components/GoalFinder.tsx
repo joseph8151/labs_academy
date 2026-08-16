@@ -12,6 +12,8 @@ type GoalOption = {
   focus: string[];
   format: string;
   href: string;
+  /** Omit when no confirmed hour-range mapping exists for this goal — never guess one. */
+  hourRange?: string;
 };
 
 const OPTIONS: GoalOption[] = [
@@ -22,6 +24,7 @@ const OPTIONS: GoalOption[] = [
     focus: ["Mock Interview", "Answer Structure", "Pronunciation", "Business Vocabulary"],
     format: "Private 1:1 Intensive",
     href: "/programs/private-intensive",
+    hourRange: "20–40H",
   },
   {
     id: "meeting",
@@ -30,6 +33,7 @@ const OPTIONS: GoalOption[] = [
     focus: ["Speaking", "Business Vocabulary", "Meeting Practice"],
     format: "Private 1:1",
     href: "/programs/business",
+    hourRange: "40–60H",
   },
   {
     id: "presentation",
@@ -38,6 +42,7 @@ const OPTIONS: GoalOption[] = [
     focus: ["Presentation", "Business Vocabulary", "Delivery"],
     format: "Private 1:1",
     href: "/programs/business",
+    hourRange: "20–40H",
   },
   {
     id: "travel",
@@ -46,6 +51,7 @@ const OPTIONS: GoalOption[] = [
     focus: ["Travel English", "Business Vocabulary", "Speaking"],
     format: "Private 1:1 Intensive",
     href: "/programs/private-intensive",
+    hourRange: "20–40H",
   },
   {
     id: "opic",
@@ -54,6 +60,7 @@ const OPTIONS: GoalOption[] = [
     focus: ["Background Survey", "Combo-set Response", "Speaking"],
     format: "Private 1:1",
     href: "/programs/opic",
+    hourRange: "20–40H",
   },
   {
     id: "ielts-toefl",
@@ -62,6 +69,7 @@ const OPTIONS: GoalOption[] = [
     focus: ["Speaking", "Writing", "Test Strategy"],
     format: "Private 1:1",
     href: "/programs/test-preparation",
+    hourRange: "40–60H",
   },
   {
     id: "conversation",
@@ -70,6 +78,7 @@ const OPTIONS: GoalOption[] = [
     focus: ["Speaking Fluency", "Vocabulary", "Expression Correction"],
     format: "Private 1:1",
     href: "/programs/conversation",
+    hourRange: "40–80H",
   },
   {
     id: "pronunciation",
@@ -78,6 +87,7 @@ const OPTIONS: GoalOption[] = [
     focus: ["Pronunciation", "Intonation", "Speaking Fluency"],
     format: "Private 1:1",
     href: "/programs/conversation",
+    hourRange: "40–60H",
   },
   {
     id: "chinese",
@@ -147,7 +157,7 @@ export default function GoalFinder() {
               <p className="text-xs font-semibold tracking-[0.2em] text-[var(--color-dark-gold)]">
                 YOUR RECOMMENDED LABS PLAN
               </p>
-              <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
+              <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 <div>
                   <p className="text-xs font-semibold text-[var(--color-muted)]">Recommended Program</p>
                   <p className="mt-1.5 text-[17px] font-medium text-[var(--color-deep-brown)]">{selected.program}</p>
@@ -160,6 +170,14 @@ export default function GoalFinder() {
                   <p className="text-xs font-semibold text-[var(--color-muted)]">Recommended Format</p>
                   <p className="mt-1.5 text-sm text-[var(--color-text)]">{selected.format}</p>
                 </div>
+                {selected.hourRange && (
+                  <div>
+                    <p className="text-xs font-semibold text-[var(--color-muted)]">Recommended Hours</p>
+                    <p className="mt-1.5 font-serif text-xl italic text-[var(--color-dark-gold)]">
+                      {selected.hourRange}
+                    </p>
+                  </div>
+                )}
               </div>
               <div className="mt-8 flex flex-col items-start gap-3 border-t border-[var(--color-border)] pt-7 sm:flex-row sm:items-center">
                 <ConsultButton icon program={selected.id}>

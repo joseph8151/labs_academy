@@ -31,7 +31,21 @@ export default function Hero() {
             <br />한 사람을 위한 1:1 수업을 설계합니다.
           </p>
 
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="mt-7 flex flex-wrap items-center gap-2">
+            <span className="text-[11px] font-semibold tracking-[0.16em] text-[var(--color-muted)]">
+              PRIVATE INTENSIVE
+            </span>
+            {["20H", "40H", "60H", "80H"].map((h) => (
+              <span
+                key={h}
+                className="rounded-[var(--radius-xs)] border border-[var(--color-border)] bg-white px-2.5 py-1 text-xs font-medium text-[var(--color-deep-brown)]"
+              >
+                {h}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
               href="/#goal-finder"
               className="inline-flex h-[52px] items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-deep-brown)] px-8 text-[15px] font-medium text-[var(--color-secondary-bg)] transition-all duration-200 ease-out hover:-translate-y-px hover:bg-[var(--color-gold)] hover:text-[var(--color-deep-brown)]"
@@ -58,11 +72,13 @@ export default function Hero() {
         <div className="relative mx-auto max-w-sm lg:mx-0 lg:max-w-none">
           <EditorialPanel eyebrow="One to One" caption="PRIVATE LESSON SPACE" />
           <div className="shadow-elevated absolute -bottom-6 -left-6 hidden w-48 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-5 sm:block">
-            <p className="text-[10px] font-semibold tracking-[0.16em] text-[var(--color-dark-gold)]">PRIVATE 1:1</p>
+            <p className="text-[10px] font-semibold tracking-[0.16em] text-[var(--color-dark-gold)]">
+              20 · 40 · 60 · 80H
+            </p>
             <p className="mt-2 text-xs leading-relaxed text-[var(--color-deep-brown)]">
-              Personal Curriculum
+              필요한 만큼 집중하는
               <br />
-              Flexible Scheduling
+              Private Intensive 1:1
             </p>
           </div>
         </div>

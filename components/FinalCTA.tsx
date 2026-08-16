@@ -20,7 +20,7 @@ export default function FinalCTA() {
             나에게 필요한 수업을 시작하세요.
           </h2>
           <p className="mt-7 max-w-lg text-[15px] leading-[1.85] text-[#c8bfb2] sm:text-base">
-            현재 수준과 목표를 알려주시면 LABS가 지금 가장 먼저 필요한 수업부터 함께 확인합니다.
+            현재 수준과 목표, 남은 기간을 알려주시면 20 · 40 · 60 · 80시간 중 필요한 만큼부터 함께 확인합니다.
           </p>
 
           <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row">

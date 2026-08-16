@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
 import Manifesto from "@/components/Manifesto";
 import WhyNow from "@/components/WhyNow";
+import DeadlinePlanner from "@/components/DeadlinePlanner";
 import AboutLabs from "@/components/AboutLabs";
 import WhyLabs from "@/components/WhyLabs";
 import Comparison from "@/components/Comparison";
@@ -11,6 +12,7 @@ import Languages from "@/components/Languages";
 import PersonalCurriculum from "@/components/PersonalCurriculum";
 import MidCTA from "@/components/MidCTA";
 import SampleLessonPlan from "@/components/SampleLessonPlan";
+import WeeklyRhythm from "@/components/WeeklyRhythm";
 import Instructors from "@/components/Instructors";
 import LearningMaterials from "@/components/LearningMaterials";
 import Schedule from "@/components/Schedule";
@@ -33,6 +35,7 @@ export default function Home() {
       <TrustBar />
       <Manifesto />
       <WhyNow />
+      <DeadlinePlanner />
       <AboutLabs />
       <WhyLabs />
       <Comparison />
@@ -42,6 +45,7 @@ export default function Home() {
       <PersonalCurriculum />
       <MidCTA />
       <SampleLessonPlan />
+      <WeeklyRhythm />
       <Instructors />
       <LearningMaterials />
       <Schedule />

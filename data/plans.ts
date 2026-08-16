@@ -1,38 +1,51 @@
-export type Plan = {
+export type IntensivePlan = {
   id: string;
+  hours: number;
   name: string;
   tagline: string;
-  featured?: boolean;
-  features: string[];
+  recommended?: boolean;
+  goals: string[];
   /** No confirmed price yet — keep as a placeholder until LABS finalizes tuition by branch/program. */
   priceLabel: string;
   ctaLabel: string;
 };
 
-export const plans: Plan[] = [
+export const plans: IntensivePlan[] = [
   {
-    id: "start",
-    name: "START",
-    tagline: "가볍게 시작하는 1:1",
-    features: ["주 1회 중심", "개인별 수업 설계", "1:1 피드백"],
+    id: "20h",
+    hours: 20,
+    name: "20 HOURS",
+    tagline: "ONE CLEAR GOAL",
+    goals: ["외국계 면접 대비", "Presentation 준비", "해외출장 Speaking", "OPIc 집중 대비"],
     priceLabel: "상담 시 안내",
-    ctaLabel: "수강 상담",
+    ctaLabel: "20시간 상담하기",
   },
   {
-    id: "focus",
-    name: "FOCUS",
-    tagline: "꾸준히 실력을 만들고 싶은 분",
-    featured: true,
-    features: ["주 2회 중심", "개인별 커리큘럼", "과제 및 피드백", "학습 방향 점검"],
+    id: "40h",
+    hours: 40,
+    name: "40 HOURS",
+    tagline: "PERFORMANCE UPGRADE",
+    recommended: true,
+    goals: ["Speaking + Pronunciation", "Business + Presentation", "Interview + Business Communication"],
     priceLabel: "상담 시 안내",
-    ctaLabel: "수강 시작하기",
+    ctaLabel: "40시간 상담하기",
   },
   {
-    id: "intensive",
-    name: "INTENSIVE",
-    tagline: "시험·면접·출장처럼 기한이 있는 분",
-    features: ["집중 수업 일정", "목표 중심 커리큘럼", "시험 / 면접 / Presentation 집중", "단기간 집중 피드백"],
-    priceLabel: "프로그램별 상담",
-    ctaLabel: "집중 프로그램 상담",
+    id: "60h",
+    hours: 60,
+    name: "60 HOURS",
+    tagline: "INTENSIVE CHANGE",
+    goals: ["Speaking + Listening + Vocabulary", "Business Communication", "시험 종합 대비"],
+    priceLabel: "상담 시 안내",
+    ctaLabel: "60시간 상담하기",
+  },
+  {
+    id: "80h",
+    hours: 80,
+    name: "80 HOURS",
+    tagline: "COMPLETE PROGRAM",
+    goals: ["주재원 준비", "유학 · 해외생활 준비", "영어 종합 집중", "장기 목표를 단기간에 압축"],
+    priceLabel: "상담 시 안내",
+    ctaLabel: "80시간 상담하기",
   },
 ];
