@@ -12,12 +12,6 @@ const POSITIONS = [
     description: "개인의 수준과 학습 성향을 분석해 맞춤수업을 제공하는 전통적인 프리미엄 1:1 방식.",
   },
   {
-    id: "ai",
-    label: "1:1 + AI Training",
-    keywords: ["AI 진단", "1:1 코칭", "자체 학습 시스템", "회화 및 시험", "온·오프라인 학습"],
-    description: "AI와 강사의 개인 코칭을 결합한 Language PT 형태.",
-  },
-  {
     id: "exam",
     label: "시험·유학 전문 1:1",
     keywords: ["TOEFL", "IELTS", "SAT", "유학 준비", "시험 전문 강사진"],
@@ -25,20 +19,20 @@ const POSITIONS = [
   },
 ];
 
-const COLUMNS = ["정밀 맞춤형 1:1", "AI 기반 1:1", "시험·유학형 1:1", "LABS Intensive"];
+const COLUMNS = ["정밀 맞춤형 1:1", "시험·유학형 1:1", "LABS Intensive"];
 
 const ROWS: { label: string; values: boolean[] }[] = [
-  { label: "개인 1:1 수업", values: [true, true, true, true] },
-  { label: "개인별 커리큘럼", values: [true, true, true, true] },
-  { label: "시험 대비", values: [true, true, true, true] },
-  { label: "회화 수업", values: [true, true, false, true] },
-  { label: "직장인 Business Training", values: [true, false, false, true] },
-  { label: "Deadline 기반 설계", values: [false, false, false, true] },
-  { label: "20·40·60·80시간 선택", values: [false, false, false, true] },
-  { label: "단기 Intensive 가능", values: [false, false, false, true] },
-  { label: "실전 Simulation", values: [false, false, false, true] },
-  { label: "목표별 수업시간 집중 배분", values: [false, false, false, true] },
-  { label: "방학·휴직·출국 전 집중과정", values: [false, false, false, true] },
+  { label: "개인 1:1 수업", values: [true, true, true] },
+  { label: "개인별 커리큘럼", values: [true, true, true] },
+  { label: "시험 대비", values: [true, true, true] },
+  { label: "회화 수업", values: [true, false, true] },
+  { label: "직장인 Business Training", values: [true, false, true] },
+  { label: "Deadline 기반 설계", values: [false, false, true] },
+  { label: "20·40·60·80시간 선택", values: [false, false, true] },
+  { label: "단기 Intensive 가능", values: [false, false, true] },
+  { label: "실전 Simulation", values: [false, false, true] },
+  { label: "목표별 수업시간 집중 배분", values: [false, false, true] },
+  { label: "방학·휴직·출국 전 집중과정", values: [false, false, true] },
 ];
 
 const USE_CASES = [
@@ -68,7 +62,7 @@ export default function CompetitiveEdge() {
         </FadeUp>
 
         {/* Positioning cards */}
-        <div className="mt-12 grid grid-cols-1 gap-5 md:mt-14 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-5 md:mt-14 lg:grid-cols-3">
           {POSITIONS.map((p, i) => (
             <FadeUp key={p.id} delay={Math.min(i * 0.06, 0.24)}>
               <div className="card-plain flex h-full flex-col p-7">
@@ -128,7 +122,7 @@ export default function CompetitiveEdge() {
                       key={c}
                       className={cn(
                         "border-b py-4 text-center text-xs font-semibold tracking-[0.06em]",
-                        i === 3
+                        i === 2
                           ? "border-[var(--color-gold)] text-[var(--color-dark-gold)]"
                           : "border-[var(--color-border)] text-[var(--color-muted)]"
                       )}
@@ -149,14 +143,14 @@ export default function CompetitiveEdge() {
                         key={i}
                         className={cn(
                           "border-b py-3.5 text-center",
-                          i === 3 ? "border-[var(--color-gold)] bg-[var(--color-champagne)]/15" : "border-[var(--color-border)]"
+                          i === 2 ? "border-[var(--color-gold)] bg-[var(--color-champagne)]/15" : "border-[var(--color-border)]"
                         )}
                       >
                         {v ? (
                           <Check
                             size={16}
                             strokeWidth={1.75}
-                            className={cn("mx-auto", i === 3 ? "text-[var(--color-dark-gold)]" : "text-[var(--color-text)]")}
+                            className={cn("mx-auto", i === 2 ? "text-[var(--color-dark-gold)]" : "text-[var(--color-text)]")}
                           />
                         ) : (
                           <span className="text-[var(--color-border)]">—</span>
