@@ -20,10 +20,19 @@ const MEASURES = [
   { title: "Learning Continuity", desc: "다음 수업에서 무엇을 이어갈지 명확하게 관리합니다." },
 ];
 
+const PAGE_SIZE = 6;
+
 export default function Reviews() {
   const [filter, setFilter] = useState<ReviewCategory | "all">("all");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const verified = studentStories.filter((s) => s.verified);
-  const visible = filter === "all" ? verified : verified.filter((s) => s.category === filter);
+  const filtered = filter === "all" ? verified : verified.filter((s) => s.category === filter);
+  const visible = filtered.slice(0, visibleCount);
+
+  function handleFilter(value: ReviewCategory | "all") {
+    setFilter(value);
+    setVisibleCount(PAGE_SIZE);
+  }
 
   return (
     <section id="reviews" className="bg-[var(--color-primary-bg)] py-16 md:py-24 lg:py-32">
@@ -43,7 +52,7 @@ export default function Reviews() {
                 {FILTERS.map((f) => (
                   <button
                     key={f.value}
-                    onClick={() => setFilter(f.value)}
+                    onClick={() => handleFilter(f.value)}
                     className={cn(
                       "rounded-[var(--radius-sm)] border px-4 py-1.5 text-xs font-medium transition-colors",
                       filter === f.value
@@ -114,6 +123,23 @@ export default function Reviews() {
               </FadeUp>
             ))}
           </div>
+        )}
+
+        {filtered.length > visibleCount && (
+          <FadeUp delay={0.1}>
+            <div className="mt-10 flex flex-col items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}
+                className="rounded-[var(--radius-md)] border border-[var(--color-deep-brown)] px-7 py-3 text-sm font-medium text-[var(--color-deep-brown)] transition-colors hover:bg-[var(--color-deep-brown)] hover:text-white"
+              >
+                후기 더 보기
+              </button>
+              <p className="text-xs text-[var(--color-muted)]">
+                {visible.length} / {filtered.length}
+              </p>
+            </div>
+          </FadeUp>
         )}
       </div>
     </section>
