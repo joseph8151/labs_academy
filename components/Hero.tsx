@@ -25,9 +25,9 @@ export default function Hero() {
           </p>
 
           <p className="body-copy mt-6">
-            회화, 비즈니스, 면접, 시험 준비까지.
+            유학·시험 준비부터 회화, 비즈니스까지.
             <br />
-            현재 수준과 목표를 먼저 확인하고
+            현재 수준과 학습 목표를 먼저 확인하고
             <br />한 사람을 위한 1:1 수업을 설계합니다.
           </p>
 
@@ -65,7 +65,7 @@ export default function Hero() {
           </p>
 
           <p className="mt-6 text-xs tracking-[0.04em] text-[var(--color-muted)]">
-            영어 · 중국어 · 일본어 · 스페인어 · 시험대비 · 비즈니스
+            TOEFL · IELTS · DET · PTE · SAT · 영어회화 · 기업출강 · 제2외국어
           </p>
         </div>
 

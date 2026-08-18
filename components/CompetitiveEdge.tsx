@@ -14,7 +14,7 @@ const POSITIONS = [
   {
     id: "exam",
     label: "시험·유학 전문 1:1",
-    keywords: ["TOEFL", "IELTS", "SAT", "유학 준비", "시험 전문 강사진"],
+    keywords: ["TOEFL", "IELTS", "PTE", "듀오링고", "SAT", "유학 준비", "시험 전문 강사진"],
     description: "유학 및 공인시험 중심으로 전문성을 강화한 학업형 1:1 수업.",
   },
 ];

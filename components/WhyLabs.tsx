@@ -6,7 +6,7 @@ const STEPS = [
     title: "Consultation",
     titleKo: "목표 상담",
     desc: "목적과 필요한 영역 파악",
-    examples: ["일상회화", "외국계 면접", "해외출장", "OPIc", "IELTS", "TOEFL", "중국어", "일본어"],
+    examples: ["해외대학 입시", "교환학생", "SAT", "토플", "아이엘츠", "PTE", "듀오링고", "제2외국어"],
   },
   {
     number: "02",

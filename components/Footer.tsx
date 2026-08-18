@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { locations } from "@/data/locations";
 import { company } from "@/data/company";
 
 const FOOTER_LINKS = [
@@ -19,8 +18,6 @@ const POLICY_LINKS = [
 ];
 
 export default function Footer() {
-  const primaryPhone = locations[0]?.phone;
-
   return (
     <footer className="border-t border-[var(--color-border)] bg-[var(--color-secondary-bg)]">
       <div className="container-labs md:px-10 py-16 lg:py-20">
@@ -47,7 +44,7 @@ export default function Footer() {
 
         <div className="flex flex-col gap-4 text-xs leading-relaxed text-[var(--color-muted)] md:flex-row md:items-start md:justify-between">
           <div className="space-y-1">
-            {primaryPhone && <p>대표 전화 {primaryPhone}</p>}
+            <p>대표 전화 {company.phone}</p>
             <p>운영시간 안내는 각 지점 페이지에서 확인하실 수 있습니다.</p>
             <p>
               상호 {company.legalName} · 대표자 {company.ceo} · 사업자등록번호 {company.businessRegistrationNumber} ·

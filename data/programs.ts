@@ -11,20 +11,19 @@ export type Program = {
 
 export const programs: Program[] = [
   {
-    slug: "conversation",
+    slug: "study-abroad",
     number: "01",
-    name: "Conversation",
-    nameKo: "일상 및 실전 회화",
-    summary: "일상 및 실전 회화",
-    items: ["발음 및 억양", "Vocabulary", "Speaking Fluency", "Expression Correction"],
+    name: "Study Abroad & Test Prep",
+    nameKo: "유학·시험 준비",
+    summary: "해외 대학·대학원 진학, 장학금, 이민 등 목표 점수를 위한 맞춤 1:1 커리큘럼",
+    items: ["IELTS", "TOEFL", "Duolingo English Test", "PTE", "SAT", "ACT", "GRE", "GMAT", "IB", "AP"],
     audience: [
-      "영어로 말할 때 긴장하는 분",
-      "문법은 알지만 대화가 어려운 분",
-      "해외생활을 준비하는 분",
-      "꾸준하게 Speaking을 연습하고 싶은 분",
+      "해외 대학·대학원 진학을 준비하는 학생 및 직장인",
+      "장학금·이민을 위한 공인 점수가 필요한 분",
+      "국제학교 재학 중 내신 관리가 필요한 학생",
     ],
     intro:
-      "정해진 진도가 아니라 지금 필요한 표현과 상황을 중심으로 말하기 훈련을 설계합니다. 발음, 억양, 표현 교정을 실시간 피드백과 함께 진행합니다.",
+      "지원하는 국가와 학교, 목표 점수를 기준으로 필요한 시험과 학습 범위를 함께 설계합니다.",
   },
   {
     slug: "business",
@@ -43,8 +42,25 @@ export const programs: Program[] = [
       "업무 상황별로 필요한 언어 영역을 진단하고, 실제 업무 맥락에 맞춘 표현과 커뮤니케이션 방식을 훈련합니다.",
   },
   {
-    slug: "test-preparation",
+    slug: "conversation",
     number: "03",
+    name: "Conversation & Speaking",
+    nameKo: "일상·회화",
+    summary: "자연스럽고 자신감 있는 영어 말하기를 위한 1:1 수업",
+    items: ["발음 및 억양", "Vocabulary", "Speaking Fluency", "Expression Correction", "기업 출강", "임직원 교육"],
+    audience: [
+      "영어로 말할 때 긴장하는 분",
+      "문법은 알지만 대화가 어려운 분",
+      "해외생활을 준비하는 분",
+      "꾸준하게 Speaking을 연습하고 싶은 분",
+      "기업 및 단체 임직원",
+    ],
+    intro:
+      "정해진 진도가 아니라 지금 필요한 표현과 상황을 중심으로 말하기 훈련을 설계합니다. 발음, 억양, 표현 교정을 실시간 피드백과 함께 진행합니다.",
+  },
+  {
+    slug: "test-preparation",
+    number: "04",
     name: "Test Preparation",
     nameKo: "시험 대비",
     summary: "OPIc · SPA · TEPS · IELTS · TOEFL · HSK · TSC · JLPT · JPT · DELE 등",
@@ -60,7 +76,7 @@ export const programs: Program[] = [
   },
   {
     slug: "private-intensive",
-    number: "04",
+    number: "05",
     name: "Private Intensive",
     nameKo: "단기 집중 프로그램",
     summary: "면접 · 해외 출장 · 유학 · 시험 · 승진 · 이직 · 주재원 준비",

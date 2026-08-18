@@ -7,7 +7,6 @@ import FloatingCTA from "@/components/FloatingCTA";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import LocationPicker from "@/components/LocationPicker";
 import { ConsultModalProvider } from "@/context/ConsultModalContext";
-import { locations } from "@/data/locations";
 import { company } from "@/data/company";
 
 const manrope = Manrope({
@@ -60,8 +59,6 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  const primary = locations[0];
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
@@ -70,14 +67,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     legalName: company.legalName,
     description: "성인 1:1 맞춤 어학 교육 전문 기관",
     url: SITE_URL,
-    ...(primary && {
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: primary.address,
-        addressCountry: "KR",
-      },
-      telephone: primary.phone,
-    }),
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: company.address,
+      addressCountry: "KR",
+    },
+    telephone: company.phone,
   };
 
   return (

@@ -23,17 +23,6 @@ export type Location = {
  */
 export const locations: Location[] = [
   {
-    id: "suwon",
-    name: "LABS 수원",
-    address: "경기도 수원시 영통구 신원로 299, 3층 (매탄동)",
-    phone: "031-214-8131",
-    kakaoId: "수원랩스어학원",
-    kakaoChannelUrl: "https://pf.kakao.com/_NlNdX/chat",
-    hours: "운영시간 안내 준비중",
-    mapUrl: "https://place.map.kakao.com/27354388",
-    programs: ["영어회화", "비즈니스 영어", "시험대비", "중국어", "일본어"],
-  },
-  {
     id: "bundang",
     name: "LABS 분당",
     address: "경기도 성남시 분당구 백현로101번길 12, 304호 (수내동, 세인프라자)",
@@ -51,6 +40,17 @@ export const locations: Location[] = [
     kakaoChannelUrl: "https://pf.kakao.com/_dZNdX/chat",
     hours: "운영시간 안내 준비중",
     mapUrl: "https://place.map.kakao.com/233265720",
+    programs: ["영어회화", "비즈니스 영어", "시험대비", "중국어", "일본어"],
+  },
+  {
+    id: "suwon",
+    name: "LABS 수원",
+    address: "경기도 수원시 영통구 신원로 299, 3층 (매탄동)",
+    phone: "031-214-8131",
+    kakaoId: "수원랩스어학원",
+    kakaoChannelUrl: "https://pf.kakao.com/_NlNdX/chat",
+    hours: "운영시간 안내 준비중",
+    mapUrl: "https://place.map.kakao.com/27354388",
     programs: ["영어회화", "비즈니스 영어", "시험대비", "중국어", "일본어"],
   },
 ];

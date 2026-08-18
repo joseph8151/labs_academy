@@ -14,9 +14,9 @@ export const languages: LanguageTrack[] = [
     code: "EN",
     name: "English",
     nameKo: "영어",
-    tagline: "회화부터 비즈니스, 공인시험까지",
-    courses: ["영어회화", "비즈니스 영어"],
-    tests: ["OPIc", "SPA", "TEPS", "IELTS", "TOEFL"],
+    tagline: "회화부터 비즈니스, 유학·공인시험까지",
+    courses: ["영어회화", "비즈니스 영어", "유학 영어", "국제학교 준비", "해외 면접", "이민 준비"],
+    tests: ["SPA", "TEPS", "IELTS", "TOEFL", "DET", "PTE", "SAT", "OPIc"],
   },
   {
     slug: "chinese",
@@ -50,8 +50,8 @@ export const languages: LanguageTrack[] = [
     code: "＋",
     name: "Others",
     nameKo: "기타 언어",
-    tagline: "베트남어 등 기타 언어 상담",
-    courses: ["기타 언어 상담"],
+    tagline: "독일어·프랑스어·러시아어 등 기타 언어 상담",
+    courses: ["독일어", "프랑스어", "러시아어", "베트남어", "태국어", "이탈리아어"],
     tests: [],
   },
 ];
