@@ -1,11 +1,19 @@
 {
-  // Static-only deployment: the Next.js app builds to `out/` (see next.config.ts
-  // `output: "export"`), and Cloudflare serves those files directly as a
-  // Worker with static assets — no server-side Worker script is needed.
+  // The Next.js app builds to `out/` (see next.config.ts `output: "export"`).
+  // A thin Worker script (worker/index.js) serves those static files via the
+  // ASSETS binding and adds one extra thing: a weekly cron job that emails a
+  // visitor report. If that worker/index.js file is ever removed, drop
+  // "main" and "triggers" below and this goes back to pure static hosting.
   "name": "labs-academy",
   "compatibility_date": "2026-08-01",
+  "main": "worker/index.js",
   "assets": {
     "directory": "./out",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    "binding": "ASSETS"
+  },
+  "triggers": {
+    // Monday 00:00 UTC = Monday 09:00 KST.
+    "crons": ["0 0 * * 1"]
   }
 }
