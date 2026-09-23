@@ -25,12 +25,9 @@ const worker = {
     // Temporary manual-test route so the weekly report can be verified without
     // waiting for the Sunday cron — safe to remove once confirmed working.
     if (url.pathname === "/__trigger-weekly-report-x7f2q9") {
-      const runId = crypto.randomUUID();
-      console.log("Manual report trigger start", runId);
-      await sendWeeklyReport(env);
-      console.log("Manual report trigger done", runId);
-      return new Response(`Report triggered (${runId}) — check your email in a minute.`, {
-        headers: { "Cache-Control": "no-store" },
+      const result = await sendWeeklyReport(env);
+      return new Response(JSON.stringify(result, null, 2), {
+        headers: { "Cache-Control": "no-store", "Content-Type": "application/json; charset=utf-8" },
       });
     }
     return env.ASSETS.fetch(request);
@@ -44,6 +41,16 @@ const worker = {
 export default worker;
 
 async function sendWeeklyReport(env) {
+  const diagnostics = {
+    secretsPresent: {
+      CF_API_TOKEN: Boolean(env.CF_API_TOKEN),
+      CF_ZONE_ID: Boolean(env.CF_ZONE_ID),
+      RESEND_API_KEY: Boolean(env.RESEND_API_KEY),
+      REPORT_FROM_EMAIL: Boolean(env.REPORT_FROM_EMAIL),
+      REPORT_TO_EMAIL: Boolean(env.REPORT_TO_EMAIL),
+    },
+  };
+
   const end = new Date();
   const start = new Date(end);
   start.setUTCDate(start.getUTCDate() - 7);
@@ -69,28 +76,48 @@ async function sendWeeklyReport(env) {
     }
   `;
 
-  const gqlRes = await fetch("https://api.cloudflare.com/client/v4/graphql", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${env.CF_API_TOKEN}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query,
-      variables: { zoneTag: env.CF_ZONE_ID, start: startStr, end: endStr },
-    }),
-  });
-
-  if (!gqlRes.ok) {
-    console.error("Cloudflare GraphQL request failed", await gqlRes.text());
-    return;
+  let gqlRes;
+  try {
+    gqlRes = await fetch("https://api.cloudflare.com/client/v4/graphql", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${env.CF_API_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        query,
+        variables: { zoneTag: env.CF_ZONE_ID, start: startStr, end: endStr },
+      }),
+    });
+  } catch (err) {
+    diagnostics.step = "cloudflare-graphql-fetch-threw";
+    diagnostics.error = String(err);
+    return diagnostics;
   }
 
-  const gqlData = await gqlRes.json();
+  diagnostics.graphqlStatus = gqlRes.status;
+  const gqlBodyText = await gqlRes.text();
+  diagnostics.graphqlBody = gqlBodyText.slice(0, 800);
+
+  if (!gqlRes.ok) {
+    diagnostics.step = "cloudflare-graphql-not-ok";
+    return diagnostics;
+  }
+
+  const gqlData = JSON.parse(gqlBodyText);
+  if (gqlData.errors) {
+    diagnostics.step = "cloudflare-graphql-errors-field";
+    diagnostics.graphqlErrors = gqlData.errors;
+    return diagnostics;
+  }
+
   const rows = gqlData?.data?.viewer?.zones?.[0]?.httpRequests1dGroups ?? [];
+  diagnostics.rowCount = rows.length;
 
   const totalUniques = rows.reduce((sum, r) => sum + (r.uniq?.uniques ?? 0), 0);
   const totalPageViews = rows.reduce((sum, r) => sum + (r.sum?.pageViews ?? 0), 0);
+  diagnostics.totalUniques = totalUniques;
+  diagnostics.totalPageViews = totalPageViews;
 
   const rowsHtml = rows
     .map(
@@ -127,22 +154,30 @@ async function sendWeeklyReport(env) {
     </div>
   `;
 
-  const sendRes = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${env.RESEND_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: env.REPORT_FROM_EMAIL,
-      // REPORT_TO_EMAIL may be a single address or a comma-separated list.
-      to: env.REPORT_TO_EMAIL.split(",").map((addr) => addr.trim()).filter(Boolean),
-      subject: `LABS Academy 주간 방문자 리포트 (${startStr} ~ ${endStr})`,
-      html,
-    }),
-  });
-
-  if (!sendRes.ok) {
-    console.error("Resend send failed", await sendRes.text());
+  let sendRes;
+  try {
+    sendRes = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: env.REPORT_FROM_EMAIL,
+        // REPORT_TO_EMAIL may be a single address or a comma-separated list.
+        to: env.REPORT_TO_EMAIL.split(",").map((addr) => addr.trim()).filter(Boolean),
+        subject: `LABS Academy 주간 방문자 리포트 (${startStr} ~ ${endStr})`,
+        html,
+      }),
+    });
+  } catch (err) {
+    diagnostics.step = "resend-fetch-threw";
+    diagnostics.error = String(err);
+    return diagnostics;
   }
+
+  diagnostics.resendStatus = sendRes.status;
+  diagnostics.resendBody = (await sendRes.text()).slice(0, 800);
+  diagnostics.step = sendRes.ok ? "done" : "resend-not-ok";
+  return diagnostics;
 }
