@@ -25,8 +25,13 @@ const worker = {
     // Temporary manual-test route so the weekly report can be verified without
     // waiting for the Sunday cron — safe to remove once confirmed working.
     if (url.pathname === "/__trigger-weekly-report-x7f2q9") {
+      const runId = crypto.randomUUID();
+      console.log("Manual report trigger start", runId);
       await sendWeeklyReport(env);
-      return new Response("Report triggered — check your email in a minute.");
+      console.log("Manual report trigger done", runId);
+      return new Response(`Report triggered (${runId}) — check your email in a minute.`, {
+        headers: { "Cache-Control": "no-store" },
+      });
     }
     return env.ASSETS.fetch(request);
   },
