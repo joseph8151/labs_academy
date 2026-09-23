@@ -15,7 +15,8 @@
  *   RESEND_API_KEY   - API key from resend.com
  *   REPORT_FROM_EMAIL- e.g. "LABS Academy <reports@labsacademies.com>" or
  *                      "LABS Academy <onboarding@resend.dev>" before a domain is verified
- *   REPORT_TO_EMAIL  - where the weekly report should land
+ *   REPORT_TO_EMAIL  - where the weekly report should land (comma-separate
+ *                      multiple addresses, e.g. "a@x.com, b@y.com")
  */
 
 const worker = {
@@ -129,7 +130,8 @@ async function sendWeeklyReport(env) {
     },
     body: JSON.stringify({
       from: env.REPORT_FROM_EMAIL,
-      to: env.REPORT_TO_EMAIL,
+      // REPORT_TO_EMAIL may be a single address or a comma-separated list.
+      to: env.REPORT_TO_EMAIL.split(",").map((addr) => addr.trim()).filter(Boolean),
       subject: `LABS Academy 주간 방문자 리포트 (${startStr} ~ ${endStr})`,
       html,
     }),
