@@ -20,6 +20,13 @@
 
 const worker = {
   async fetch(request, env) {
+    const url = new URL(request.url);
+    // Temporary manual-test route so the weekly report can be verified without
+    // waiting for the Sunday cron — safe to remove once confirmed working.
+    if (url.pathname === "/__trigger-weekly-report-x7f2q9") {
+      await sendWeeklyReport(env);
+      return new Response("Report triggered — check your email in a minute.");
+    }
     return env.ASSETS.fetch(request);
   },
 
