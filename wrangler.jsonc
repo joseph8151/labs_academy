@@ -10,7 +10,11 @@
   "assets": {
     "directory": "./out",
     "not_found_handling": "404-page",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    // Without this, Cloudflare serves 404s for unmatched paths straight from
+    // the assets layer and never calls worker/index.js's fetch() — which is
+    // what our /__trigger-weekly-report-x7f2q9 test route needs to run.
+    "run_worker_first": true
   },
   "triggers": {
     // Monday 00:00 UTC = Monday 09:00 KST.
